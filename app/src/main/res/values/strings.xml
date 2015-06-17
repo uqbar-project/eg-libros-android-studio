@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LibrosConRest</string>
+    <string name="title_libro_detail">Libro Detail</string>
+</resources>
