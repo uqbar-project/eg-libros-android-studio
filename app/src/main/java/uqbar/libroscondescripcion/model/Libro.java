@@ -1,10 +1,13 @@
 package uqbar.libroscondescripcion.model;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.Serializable;
+
 /**
  * Created by estefaniasoledadmiguel on 9/6/15.
  */
-public class Libro {
+public class Libro implements Serializable {
     private int id;
     private String titulo;
     private String autor;
@@ -42,6 +45,6 @@ public class Libro {
 
     @Override
     public String toString() {
-        return titulo;
+        return titulo + " (" + autor + ")";
     }
 }

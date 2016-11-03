@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">LibrosConDescripcion</string>
-    <string name="title_libro_detail">Libro Detail</string>
+    <string name="app_name">Libros</string>
+    <string name="title_libro_detail">Detalle del libro</string>
 </resources>

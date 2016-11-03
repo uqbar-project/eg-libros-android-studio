@@ -6,6 +6,9 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.util.List;
+
 import uqbar.libroscondescripcion.model.Biblioteca;
 import uqbar.libroscondescripcion.model.Libro;
 
@@ -19,6 +22,8 @@ import uqbar.libroscondescripcion.model.Libro;
  * interface.
  */
 public class LibroListFragment extends ListFragment {
+
+    List<Libro> libros;
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -46,7 +51,7 @@ public class LibroListFragment extends ListFragment {
         /**
          * Callback for when an item has been selected.
          */
-        public void onItemSelected(String id);
+        public void onItemSelected(Libro book);
     }
 
     /**
@@ -55,7 +60,7 @@ public class LibroListFragment extends ListFragment {
      */
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
-        public void onItemSelected(String id) {
+        public void onItemSelected(Libro book) {
         }
     };
 
@@ -70,11 +75,13 @@ public class LibroListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        libros = Biblioteca.getInstance().todasLasInstancias();
+
         setListAdapter(new ArrayAdapter<Libro>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                Biblioteca.getInstance().todasLasInstancias()));
+                libros));
     }
 
     @Override
@@ -114,7 +121,7 @@ public class LibroListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(String.valueOf(Biblioteca.getInstance().todasLasInstancias().get(position).getId()));
+        mCallbacks.onItemSelected(libros.get(position));
     }
 
     @Override

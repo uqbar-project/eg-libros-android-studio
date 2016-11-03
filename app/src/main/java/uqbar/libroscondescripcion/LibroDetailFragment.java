@@ -20,12 +20,12 @@ public class LibroDetailFragment extends Fragment {
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
-    public static final String ARG_ITEM_ID = "item_id";
+    public static final String ARG_BOOK = "book";
 
     /**
      * The dummy content this fragment is presenting.
      */
-    private Libro mItem;
+    private Libro libro;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -38,9 +38,8 @@ public class LibroDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
-            String itemID = getArguments().getString(ARG_ITEM_ID);
-            mItem = Biblioteca.getInstance().getLibro(Integer.parseInt(itemID));
+        if (getArguments().containsKey(ARG_BOOK)) {
+            libro = (Libro) getArguments().getSerializable(ARG_BOOK);
         }
     }
 
@@ -49,9 +48,9 @@ public class LibroDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_libro_detail, container, false);
 
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.libro_detail)).setText(mItem.getAutor());
-            ((TextView)rootView.findViewById(R.id.titulo_libro)).setText(mItem.getTitulo());
+        if (libro != null) {
+            ((TextView)rootView.findViewById(R.id.libro_detail)).setText(libro.getAutor());
+            ((TextView)rootView.findViewById(R.id.titulo_libro)).setText(libro.getTitulo());
         }
 
         return rootView;

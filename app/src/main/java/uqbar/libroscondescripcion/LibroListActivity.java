@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+import uqbar.libroscondescripcion.model.Libro;
+
 
 /**
  * An activity representing a list of Libros. This activity
@@ -57,13 +59,13 @@ public class LibroListActivity extends FragmentActivity
      * indicating that the item with the given ID was selected.
      */
     @Override
-    public void onItemSelected(String id) {
+    public void onItemSelected(Libro book) {
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(LibroDetailFragment.ARG_ITEM_ID, id);
+            arguments.putSerializable(LibroDetailFragment.ARG_BOOK, book);
             LibroDetailFragment fragment = new LibroDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
@@ -74,7 +76,7 @@ public class LibroListActivity extends FragmentActivity
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, LibroDetailActivity.class);
-            detailIntent.putExtra(LibroDetailFragment.ARG_ITEM_ID, id);
+            detailIntent.putExtra(LibroDetailFragment.ARG_BOOK, book);
             startActivity(detailIntent);
         }
     }

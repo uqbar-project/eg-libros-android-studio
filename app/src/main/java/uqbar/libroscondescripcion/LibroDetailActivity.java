@@ -39,8 +39,8 @@ public class LibroDetailActivity extends ActionBarActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(LibroDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(LibroDetailFragment.ARG_ITEM_ID));
+            arguments.putSerializable(LibroDetailFragment.ARG_BOOK,
+                    getIntent().getSerializableExtra(LibroDetailFragment.ARG_BOOK));
             LibroDetailFragment fragment = new LibroDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
