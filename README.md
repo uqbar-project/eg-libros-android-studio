@@ -20,5 +20,5 @@ Este proyecto está generado para
 ## Branches
 
 * **master**: la versión simple, el repositorio es un Singleton que devuelve todos los libros
-* **rest**: en la versión REST la información de los libros se obtiene de un [servicio REST que hay que importar como proyecto de SVN](https://xp-dev.com/svn/uqbar/examples/ui/web/angular/libros-angular-xtrest2/)
+* **rest**: en la versión REST la información de los libros se obtiene de un [servicio REST que hay que importar como proyecto de SVN](https://github.com/uqbar-project/eg-biblioteca-xtrest)
 
