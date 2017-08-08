@@ -20,5 +20,5 @@ Este proyecto está generado para
 ## Branches
 
 * **master**: la versión simple, el repositorio es un Singleton que devuelve todos los libros
-* **rest**: en la versión REST la información de los libros se obtiene de un [servicio REST que hay que importar como proyecto de SVN](https://github.com/uqbar-project/eg-biblioteca-xtrest)
+* **rest**: en la versión REST la información de los libros se obtiene de un [servicio REST que podés correr como aplicación embebida de Eclipse o bien como aplicación aislada (consume menos recursos)](https://github.com/uqbar-project/eg-biblioteca-xtrest)
 
